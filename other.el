@@ -7,9 +7,7 @@
 (load "my-func")
 (load "emacs-custom")
 (load "org-init")
-(load "google-c-style")
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 ;;(load "my-speedbar")
 ;;(load "jdee-init")
 ;;(load "scheme")
@@ -84,37 +82,7 @@
 ;;;_+ 配置Emacs启动最大化(for windows)
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
-; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                Setting msf-abbrev                                                  ;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/my-site-lisp/msf-abbrev.el")
 
-;Then, I do the following in my ~/.emacs:
-
-;; ensure abbrev mode is always on
-(setq-default abbrev-mode t)
-
-;; do not bug me about saving my abbreviations
-(setq save-abbrevs nil)
-
-;; load up modes I use
-;;(require 'cc-mode)
-;(require 'perl-mode)
-;(require 'cperl-mode)
-;(require 'sh-script)
-;(require 'shell)
-;(require 'tex-site) ;; I use AUCTeX
-;(require 'latex)    ;; needed to define LaTeX-mode-hook under AUCTeX
-;(require 'tex)      ;; needed to define TeX-mode-hook under AUCTeX
-;; (require 'python)   ;; I use python.el from Emacs CVS, uncomment if you do also
-
-;; load up abbrevs for these modes
-(require 'msf-abbrev)
-(setq msf-abbrev-verbose t) ;; optional
-(setq msf-abbrev-root "~/my-site-lisp/mode-abbrevs")
-(global-set-key (kbd "C-c l") 'msf-abbrev-goto-root)
-(global-set-key (kbd "C-c a") 'msf-abbrev-define-new-abbrev-this-mode)
-(msf-abbrev-load)
 ;;天气预报
 
 (require 'cn-weather)
@@ -128,11 +96,5 @@
 ;; (global-set-key (kbd "M-=") 'tabbar-forward-group)
 ;; (global-set-key (kbd "M-1") 'tabbar-backward)
 ;; (global-set-key (kbd "M-2") 'tabbar-forward) 
-;;;_+设置JDEE
-(add-to-list 'load-path "~/my-site-lisp/jdee-2.4.0.1/lisp")
-(add-to-list 'load-path "~/my-site-lisp/cedet-1.0pre7/common")
-(add-to-list 'load-path "~/my-site-lisp/cedet-1.0pre7/contrib/")
-(add-to-list 'load-path "~/my-site-lisp/elib/")
-
 
 

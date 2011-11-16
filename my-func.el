@@ -1,15 +1,45 @@
 ;;Info-directory config  ---2009年11月11日 14:37:05 
 
-(require 'info)
+;(require 'info)
 ;(setq Info-directory-list
 ;	  (cons (expand-file-name "~/my-info/my-dir")
 ;			Info-directory-list))
 ;(setq Info-default-directory-list (append Info-default-directory-list (list "~/my-info/")))
 
-(setq Info-directory-list '(
-    "~/info/" 
-    "~/my-info/"
-)) 
+;;;;;(setq Info-directory-list '(
+;;    "~/info/" 
+;;    "~/my-info/"
+;;)) 
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                Setting msf-abbrev                                                  ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "~/my-site-lisp/msf-abbrev.el")
+;Then, I do the following in my ~/.emacs:
+;; ensure abbrev mode is always on
+(setq-default abbrev-mode t)
+;; do not bug me about saving my abbreviations
+(setq save-abbrevs nil)
+;; load up modes I use
+(require 'cc-mode)
+;(require 'perl-mode)
+;(require 'cperl-mode)
+;(require 'sh-script)
+;(require 'shell)
+;(require 'tex-site) ;; I use AUCTeX
+;(require 'latex)    ;; needed to define LaTeX-mode-hook under AUCTeX
+;(require 'tex)      ;; needed to define TeX-mode-hook under AUCTeX
+;; (require 'python)   ;; I use python.el from Emacs CVS, uncomment if you do also
+
+;; load up abbrevs for these modes
+(require 'msf-abbrev)
+;(global-msf-abbrev-mode t) ;; for all modes with abbrevs
+(setq msf-abbrev-verbose t) ;; optional
+(setq msf-abbrev-root "~/my-site-lisp/mode-abbrevs")
+(global-set-key (kbd "C-c l") 'msf-abbrev-goto-root)
+(global-set-key (kbd "C-c a") 'msf-abbrev-define-new-abbrev-this-mode)
+(msf-abbrev-load)
+
+
 ;;;_+ Ibuffers config
 ;;分组设置
 (require 'smart-compile)
@@ -50,12 +80,77 @@
 
 ;;;_+ Setup Programming environment
 
+;;输入左边的括号，就会自动补全右边的部分.包括(), "", [] , {} , 等等。
+(defun my-c-mode-auto-pair ()
+  (interactive)
+  (make-local-variable 'skeleton-pair-alist)
+  (setq skeleton-pair-alist  '(
+    (?` ?` _ "''")
+    (?\( ?  _ " )")
+    (?\[ ?  _ " ]")
+    (?{ \n > _ \n ?} >)))
+  (setq skeleton-pair t)
+  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
+(add-hook 'c-mode-hook 'my-c-mode-auto-pair)
+(add-hook 'c++-mode-hook 'my-c-mode-auto-pair)
+
+;=========================================END==============================================;
+;;;_+设置JDEE
+;;(add-to-list 'load-path "~/my-site-lisp/jdee-2.4.0.1/lisp")
+;;(add-to-list 'load-path "~/my-site-lisp/cedet-1.0pre7/common")
+;;(add-to-list 'load-path "~/my-site-lisp/cedet-1.0pre7/contrib/")
+;;(add-to-list 'load-path "~/my-site-lisp/elib/")
+;=========================================END==============================================;
+;;;_auto-complete config
+
+(add-to-list 'load-path "~/my-site-lisp/auto-complete")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/my-site-lisp/auto-complete/ac-dict")
+(ac-config-default)
+;=========================================END==============================================;
+;;;_yasnippet config
+(add-to-list 
+ 'load-path  "~/my-site-lisp/yasnippet-0.6.1c")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/my-site-lisp/yasnippet-0.6.1c/snippets")
+;=========================================END==============================================;
+;;google-c-style config
+;(load "google-c-style")
+;(add-hook 'c-mode-common-hook 'google-set-c-style)
+;(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 ;;;_+CC-mode-config
-;; (require 'cc-mode)
 ;; ;; c-mode公共设置
+(require 'cc-mode)
 
+(defun my-c-mode-common-hook ()
+  (c-set-style "k&r")
+;  (c-set-style "stroustrup")
+  (setq c-macro-shrink-window-flag t)
+  (setq c-macro-preprocessor "c")
+  (setq c-macro-cppflags " ")
+  (setq c-macro-prompt-flag t)
+  (setq abbrev-mode t)
+  (setq hs-minor-mode t)
+  (setq c-basic-offset 4)
+  (setq tab-width 4)
+  (setq indent-tabs-mode t)
+  (c-toggle-auto-hungry-state t)
+  (c-toggle-auto-state)
+  (setq c-cleanup-list '(brace-else-brace
+                        brace-elseif-brace
+                        one-liner-defun
+                        empty-defun-braces
+                        list-close-comma))
 
-;; (defun my-c-mode-common-hook ()
+  (c-offsets-alist . ((substatement . 0)
+		      (func-decl-cont . 0)
+		      ))
+)
 ;; ;;;_+ hungry-delete and auto-newline
 
 ;; (c-toggle-hungry-state)
@@ -70,17 +165,8 @@
 ;;   (define-key c-mode-base-map [(meta ?/)] 'semantic-ia-complete-symbol-menu) 
 
 ;; ;;;_+预处理设置
-;;   (setq c-macro-shrink-window-flag t)
-;;   (setq c-macro-preprocessor "cpp")
-;;   (setq c-macro-cppflags " ")
-;;   (setq c-macro-prompt-flag t)
-;;   (setq hs-minor-mode t)
-;;   (setq c-basic-offset 4)
-;;   (setq abbrev-mode t)
-;; )
 
-
-;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 ;; (load-library "hideshow")
 ;; (add-hook 'c-mode-hook 'hs-minor-mode)
@@ -104,35 +190,3 @@
 ;; ;; 高亮显示C/C++中的可能的错误(CWarn mode)
 ;; (global-cwarn-mode 1)
 ;=========================================END==============================================;
-;;输入左边的括号，就会自动补全右边的部分.包括(), "", [] , {} , 等等。
-(defun my-c-mode-auto-pair ()
-  (interactive)
-  (make-local-variable 'skeleton-pair-alist)
-  (setq skeleton-pair-alist  '(
-    (?` ?` _ "''")
-    (?\( ?  _ " )")
-    (?\[ ?  _ " ]")
-    (?{ \n > _ \n ?} >)))
-  (setq skeleton-pair t)
-  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
-(add-hook 'c-mode-hook 'my-c-mode-auto-pair)
-(add-hook 'c++-mode-hook 'my-c-mode-auto-pair)
-
-;=========================================END==============================================;w
-;;;_auto-complete config
-(add-to-list 'load-path "~/my-site-lisp/auto-complete")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/my-site-lisp/auto-complete/ac-dict")
-(ac-config-default)
-
-;;;_yasnippet config
-(add-to-list 
- 'load-path  "~/my-site-lisp/yasnippet-0.6.1c")
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/my-site-lisp/yasnippet-0.6.1c/snippets")
-
-
