@@ -1,14 +1,32 @@
-;;Use newest cc-mode version
-(add-to-list 'load-path "~/.emacs.d/my-elisp/cc-mode")
-;;;_+ Setup Programming environment
-
-;;;_+CC-mode-config
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                Setting msf-abbrev                                                  ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "~/.emacs.d/my-elisp/msf-abbrev.el")
+;Then, I do the following in my ~/.emacs:
+;; ensure abbrev mode is always on
+(setq-default abbrev-mode t)
+;; do not bug me about saving my abbreviations
+(setq save-abbrevs nil)
+;; load up modes I use
 (require 'cc-mode)
+;(require 'perl-mode)
+;(require 'cperl-mode)
+;(require 'sh-script)
+;(require 'shell)
+;(require 'tex-site) ;; I use AUCTeX
+;(require 'latex)    ;; needed to define LaTeX-mode-hook under AUCTeX
+;(require 'tex)      ;; needed to define TeX-mode-hook under AUCTeX
+;; (require 'python)   ;; I use python.el from Emacs CVS, uncomment if you do also
 
-;;;Google-c-style config
-(require 'google-c-style)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;; load up abbrevs for these modes
+(require 'msf-abbrev)
+;(global-msf-abbrev-mode t) ;; for all modes with abbrevs
+(setq msf-abbrev-verbose t) ;; optional
+(setq msf-abbrev-root "~/.emacs.d/my-elisp/mode-abbrevs")
+(global-set-key (kbd "C-c l") 'msf-abbrev-goto-root)
+(global-set-key (kbd "C-c a") 'msf-abbrev-define-new-abbrev-this-mode)
+(msf-abbrev-load)
+
 
 ;;;_+ Ibuffers config
 ;;分组设置
@@ -48,6 +66,7 @@
   (insert (format-time-string "%Y年%m月%e日 %T " (current-time))))
 (global-set-key "\C-xt" 'insert-date)
 
+;;;_+ Setup Programming environment
 
 ;;输入左边的括号，就会自动补全右边的部分.包括(), "", [] , {} , 等等。
 (defun my-c-mode-auto-pair ()
@@ -55,7 +74,7 @@
   (make-local-variable 'skeleton-pair-alist)
   (setq skeleton-pair-alist  '(
     (?` ?` _ "''")
-    (?\(? _")")
+    (?\( ?  _ " )")
     (?\[ ?  _ " ]")
     (?{ \n > _ \n ?} >)))
   (setq skeleton-pair t)
@@ -66,88 +85,60 @@
 (add-hook 'c-mode-hook 'my-c-mode-auto-pair)
 (add-hook 'c++-mode-hook 'my-c-mode-auto-pair)
 
-;=========================================END==============================================
+;=========================================END==============================================;
+;;;_+设置JDEE
+;;(add-to-list 'load-path "~/.emacs.d/my-elisp/jdee-2.4.0.1/lisp")
+;;(add-to-list 'load-path "~/.emacs.d/my-elisp/cedet-1.0pre7/common")
+;;(add-to-list 'load-path "~/.emacs.d/my-elisp/cedet-1.0pre7/contrib/")
+;;(add-to-list 'load-path "~/.emacs.d/my-elisp/elib/")
+;=========================================END==============================================;
 ;;;_auto-complete config
+
 (add-to-list 'load-path "~/.emacs.d/my-elisp/auto-complete")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/my-elisp/auto-complete/ac-dict")
 (ac-config-default)
-
+;=========================================END==============================================;
 ;;;_yasnippet config
 (add-to-list 
  'load-path  "~/.emacs.d/my-elisp/yasnippet-0.6.1c")
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/my-elisp/yasnippet-0.6.1c/snippets")
-;;;--------------------------------------------------------------------------------------------
-;;;+_ Setting msf-abbrev
-(add-to-list 'load-path "~/.emacs.d/my-elisp/msf-abbrev.el")
-;;Then, I do the following in my ~/.emacs:
+;=========================================END==============================================;
+;;google-c-style config
+;(load "google-c-style")
+;(add-hook 'c-mode-common-hook 'google-set-c-style)
+;(add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
-;; ensure abbrev mode is always on
-(setq-default abbrev-mode t)
-
-;; do not bug me about saving my abbreviations
-(setq save-abbrevs nil)
-
-;; load up modes I use
+;;;_+CC-mode-config
+;; ;; c-mode公共设置
 (require 'cc-mode)
-(require 'perl-mode)
-;(require 'cperl-mode)
-(require 'sh-script)
-(require 'shell)
-;(require 'tex-site) ;; I use AUCTeX
-;(require 'latex)    ;; needed to define LaTeX-mode-hook under AUCTeX
-;(require 'tex)      ;; needed to define TeX-mode-hook under AUCTeX
-(require 'python)   ;; I use python.el from Emacs CVS, uncomment if you do also
 
-;; load up abbrevs for these modes
-(require 'msf-abbrev)
-(setq msf-abbrev-verbose t) ;; optional
-(setq msf-abbrev-root "~/.emacs.d/my-elisp/mode-abbrevs")
-(global-set-key (kbd "C-c l") 'msf-abbrev-goto-root)
-(global-set-key (kbd "C-c a") 'msf-abbrev-define-new-abbrev-this-mode)
-(msf-abbrev-load)
+(defun my-c-mode-common-hook ()
+  (c-set-style "k&r")
+;  (c-set-style "stroustrup")
+  (setq c-macro-shrink-window-flag t)
+  (setq c-macro-preprocessor "c")
+  (setq c-macro-cppflags " ")
+  (setq c-macro-prompt-flag t)
+  (setq abbrev-mode t)
+  (setq hs-minor-mode t)
+  (setq c-basic-offset 4)
+  (setq tab-width 4)
+  (setq indent-tabs-mode t)
+  (c-toggle-auto-hungry-state t)
+  (c-toggle-auto-state)
+  (setq c-cleanup-list '(brace-else-brace
+                        brace-elseif-brace
+                        one-liner-defun
+                        empty-defun-braces
+                        list-close-comma))
 
-
-;;--------------------------------------------------------------------------------------------
-;;cc-mode config reference
-
-;(setq c-default-style "linux"
-;	  c-basic-offset 4)
-;; ;; ;; c-mode公共设置
-;; (defun my-c-mode-common-hook ()
-;;   "C mode with adjusted defaults for use with the Linux Kernel"
-;; ;  (interactive)
-;; ;  (c-mode)
-;;   (c-set-style "k&r")
-;; ;  (c-set-style "stroustrup")
-;; ;  (c-set-style "linux")
-;;   (define-key c-mode-base-map [(return)] 'newline-and-indent)
-;;   (setq c-macro-shrink-window-flag t)
-;;   (setq c-macro-preprocessor "c")
-;;   (setq c-macro-cppflags " ")
-;;   (setq c-macro-prompt-flag t)
-;;   (setq abbrev-mode t)
-;;   (setq hs-minor-mode t)
-;;   (setq c-basic-offset 4)
-;;   (setq tab-width 4)
-;;   (setq indent-tabs-mode t)
-;;   (c-toggle-auto-hungry-state t)
-;;   (c-toggle-auto-state)
-;;   (setq c-cleanup-list '(brace-else-brace
-;;                         brace-elseif-brace
-;;                         one-liner-defun
-;;                         empty-defun-braces
-;;                         list-close-comma))
-;;   (setq c-offsets-alist . ((substatement . 0)
-;; 						   (func-decl-cont . 0)
-;; 						   ))
-;; )
-;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-
-
-;; (defun my-c-mode-common-hook ()
+  (c-offsets-alist . ((substatement . 0)
+		      (func-decl-cont . 0)
+		      ))
+)
 ;; ;;;_+ hungry-delete and auto-newline
 
 ;; (c-toggle-hungry-state)
@@ -162,17 +153,8 @@
 ;;   (define-key c-mode-base-map [(meta ?/)] 'semantic-ia-complete-symbol-menu) 
 
 ;; ;;;_+预处理设置
-;;   (setq c-macro-shrink-window-flag t)
-;;   (setq c-macro-preprocessor "cpp")
-;;   (setq c-macro-cppflags " ")
-;;   (setq c-macro-prompt-flag t)
-;;   (setq hs-minor-mode t)
-;;   (setq c-basic-offset 4)
-;;   (setq abbrev-mode t)
-;; )
 
-
-;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 ;; (load-library "hideshow")
 ;; (add-hook 'c-mode-hook 'hs-minor-mode)
@@ -196,3 +178,14 @@
 ;; ;; 高亮显示C/C++中的可能的错误(CWarn mode)
 ;; (global-cwarn-mode 1)
 ;=========================================END==============================================;
+;;Info-directory config  ---2009年11月11日 14:37:05 
+;(require 'info)
+;(setq Info-directory-list
+;	  (cons (expand-file-name "~/my-info/my-dir")
+;			Info-directory-list))
+;(setq Info-default-directory-list (append Info-default-directory-list (list "~/my-info/")))
+
+;;;;;(setq Info-directory-list '(
+;;    "~/info/" 
+;;    "~/my-info/"
+;;))

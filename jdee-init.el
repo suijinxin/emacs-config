@@ -1,13 +1,13 @@
 ;;------------------------------------------------------------------------------ 
 ;; Java Development Enviroment 
 ;;------------------------------------------------------------------------------ 
-(add-to-list 'load-path (expand-file-name "~/my-site-lisp/jdee-2.4.0.1/lisp")) 
-(add-to-list 'load-path (expand-file-name "~/my-site-lisp/cedet-1.0pre7/semantic"))
-(add-to-list 'load-path (expand-file-name "~/my-site-lisp/cedet-1.0pre7/speedbar"))
-(add-to-list 'load-path (expand-file-name "~/my-site-lisp/elib"))
-;(add-to-list 'load-path (expand-file-name "~/my-site-lisp/ecb/ecb-snap"))
-(add-to-list 'load-path (expand-file-name "~/my-site-lisp/cedet-1.0pre7/eieio"))
-(load-file (expand-file-name "~/my-site-lisp/cedet-1.0pre7/common/cedet.el"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-elisp/jdee-2.4.0.1/lisp")) 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-elisp/cedet-1.0pre7/semantic"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-elisp/cedet-1.0pre7/speedbar"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-elisp/elib"))
+;(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-elisp/ecb/ecb-snap"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-elisp/cedet-1.0pre7/eieio"))
+(load-file (expand-file-name "~/.emacs.d/my-elisp/cedet-1.0pre7/common/cedet.el"))
 (setq defer-loading-jde nil)
 
 (if defer-loading-jde

@@ -52,7 +52,7 @@
 
 
 ;;;_+ EMACS配色方案,菜单Tools->Color Theme 选择你需要的配色 
-(add-to-list 'load-path "~/my-site-lisp/color-theme-6.6.0")
+(add-to-list 'load-path "~/.emacs.d/my-elisp/color-theme-6.6.0")
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-oswald)
@@ -65,7 +65,7 @@
 ;(color-theme-classic)
 ;(color-theme-deep-blue)
 
-;; (add-to-list 'load-path "~/my-site-lisp/zenburn.el")
+;; (add-to-list 'load-path "~/.emacs.d/my-elisp/zenburn.el")
 ;; (require 'zenburn)
 ;; (color-theme-zenburn)
 ;; (unless (zenburn-format-spec-works-p)

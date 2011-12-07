@@ -1,2 +1,2 @@
-(setq load-path (cons "~/my-site-lisp/bookmarkplus" load-path))
+(setq load-path (cons "~/.emacs.d/my-elisp/bookmarkplus" load-path))
 (require 'bookmark+)

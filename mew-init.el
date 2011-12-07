@@ -1,8 +1,8 @@
 ;;  ×°ÔØMew
-(setq load-path (cons "~/my-site-lisp/mew-6.3" load-path))
+(setq load-path (cons "~/.emacs.d/my-elisp/mew-6.3" load-path))
 (autoload 'mew "mew" nil t)
 (autoload 'mew-send "mew" nil t)
-(setq mew-icon-directory "~/my-site-lisp/mew-6.3/etc")
+(setq mew-icon-directory "~/.emacs.d/my-elisp/mew-6.3/etc")
 (setq mew-use-cached-passwd t)
 (if (boundp 'read-mail-command)
     (setq read-mail-command 'mew))

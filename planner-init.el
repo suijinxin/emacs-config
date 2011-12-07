@@ -1,9 +1,9 @@
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                Setting Planner                                                   ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(setq load-path (add-to-list 'load-path  "~/my-site-lisp/muse/lisp"))
-(add-to-list 'load-path "~/my-site-lisp/planner")
-(add-to-list 'load-path "~/my-site-lisp/remember")
+;(setq load-path (add-to-list 'load-path  "~/.emacs.d/my-elisp/muse/lisp"))
+(add-to-list 'load-path "~/.emacs.d/my-elisp/planner")
+(add-to-list 'load-path "~/.emacs.d/my-elisp/remember")
 (require 'planner)
 ;(require 'planner-diary)
 ;(require 'planner-cyclic)

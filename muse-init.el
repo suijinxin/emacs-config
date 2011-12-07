@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/my-site-lisp/muse/lisp")
+(add-to-list 'load-path "~/.emacs.d/my-elisp/muse/lisp")
 (require 'muse-mode)
 (require 'muse-html)
 (require 'muse-colors nil t)   ; load coloring/font-lock module

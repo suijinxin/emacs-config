@@ -1,5 +1,5 @@
 ;;»ù±¾ÉèÖÃ
-(setq load-path (cons "~/my-site-lisp/org-7.7/lisp" load-path))
+(setq load-path (cons "~/.emacs.d/my-elisp/org-mode/lisp" load-path))
 (require 'org-install)
 (require 'org)
 (require 'org-mouse)
