@@ -75,10 +75,12 @@
 
 ;;;_yasnippet config
 (add-to-list 
- 'load-path  "~/.emacs.d/my-elisp/yasnippet-0.6.1c")
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/my-elisp/yasnippet-0.6.1c/snippets")
+ 'load-path  "~/.emacs.d/my-elisp/yasnippet")
+(require 'yasnippet) ;;not yasnippet-bundle
+(setq yas/snippet-dirs '("~/.emacs.d/my-elisp/yasnippet/snippets""~/.emacs.d/my-elisp/yasnippet/extras/imported"))
+(yas/global-mode 1)
+;;(yas/initialize)
+;;(yas/load-directory "~/.emacs.d/my-elisp/yasnippet/snippets")
 ;;;--------------------------------------------------------------------------------------------
 ;;;+_ Setting msf-abbrev
 (add-to-list 'load-path "~/.emacs.d/my-elisp/msf-abbrev.el")
