@@ -77,10 +77,14 @@
 (add-to-list 
  'load-path  "~/.emacs.d/my-elisp/yasnippet")
 (require 'yasnippet) ;;not yasnippet-bundle
-(setq yas/snippet-dirs '("~/.emacs.d/my-elisp/yasnippet/snippets""~/.emacs.d/my-elisp/yasnippet/extras/imported"))
-(yas/global-mode 1)
-;;(yas/initialize)
-;;(yas/load-directory "~/.emacs.d/my-elisp/yasnippet/snippets")
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/my-elisp/yasnippet/snippets")
+
+(require 'dropdown-list)
+(setq yas/prompt-functions '(yas/dropdown-prompt
+							 yas/ido-prompt
+							 yas/completing-prompt))
+;;(yas/define-snippets 'nxhtml-mode nil 'html-mode)
 ;;;--------------------------------------------------------------------------------------------
 ;;;+_ Setting msf-abbrev
 (add-to-list 'load-path "~/.emacs.d/my-elisp/msf-abbrev.el")
@@ -111,7 +115,16 @@
 (global-set-key (kbd "C-c a") 'msf-abbrev-define-new-abbrev-this-mode)
 (msf-abbrev-load)
 
+;;nXhtml configure
+(load "~/.emacs.d/my-elisp/nxhtml/autostart")
+;; (setq mumamo-background-colors nil)   
 
+;; (eval-after-load "bytecomp"  
+;;   '(add-to-list 'byte-compile-not-obsolete-vars   
+;;                 'font-lock-beginning-of-syntax-function))   
+;; (eval-after-load "bytecomp"  
+;;   '(add-to-list 'byte-compile-not-obsolete-vars   
+;; 				'font-lock-syntactic-keywords))  
 ;;--------------------------------------------------------------------------------------------
 ;;cc-mode config reference
 
