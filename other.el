@@ -7,7 +7,7 @@
 (load "my-func")
 (load "emacs-custom")
 (load "org-init")
-
+(require 'dired-single)
 
 ;;(load "my-speedbar")
 ;;(load "jdee-init")
@@ -16,7 +16,6 @@
 ;;(tabbar-mode 1)
 ;;;_+ 设置中文日历
 (require 'cal-china-x)
-(require 'dired-single)
 (setq mark-holidays-in-calendar t)
 (setq cal-china-x-priority1-holidays cal-china-x-chinese-holidays)
 (setq calendar-holidays cal-china-x-priority1-holidays)

@@ -82,8 +82,8 @@
 
 (require 'dropdown-list)
 (setq yas/prompt-functions '(yas/dropdown-prompt
-							 yas/ido-prompt
-							 yas/completing-prompt))
+			     yas/ido-prompt
+			     yas/completing-prompt))
 ;;(yas/define-snippets 'nxhtml-mode nil 'html-mode)
 ;;;--------------------------------------------------------------------------------------------
 ;;;+_ Setting msf-abbrev
