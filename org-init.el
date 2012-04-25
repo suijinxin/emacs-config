@@ -3,11 +3,11 @@
 (require 'org-install)
 (require 'org)
 (require 'org-mouse)
-(setq org-agenda-files (list "~/org/work.org" 
-			     "~/org/life.org"    
-			     "~/org/study.org"
-			     "~/org/test.org"
-				 "~/org/todo.org")) 
+(setq org-agenda-files (list "~/.emacs.d/org/work.org" 
+			     "~/.emacs.d/org/life.org"    
+			     "~/.emacs.d/org/study.org"
+			     "~/.emacs.d/org/test.org"
+				 "~/.emacs.d/org/todo.org")) 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 ;(global-set-key "\C-c\C-l" 'org-store-link)
 ;(global-set-key "\C-c\C-a" 'org-agenda)
@@ -18,8 +18,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ;; OrgMode & Remember
-(setq org-directory "~/org")
-(setq org-default-notes-file "~/org/.notes")
+(setq org-directory "~/.emacs.d/org")
+(setq org-default-notes-file "~/.emacs.d/org/.notes")
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
@@ -47,8 +47,8 @@
 ;;;发布工程设置
 (setq org-publish-project-alist
       '(("org"
-	 :base-directory "~/org/"
-	 :publishing-directory "~/public_html/org/"
+	 :base-directory "~/.emacs.d/org/"
+	 :publishing-directory "~/.emacs.d/public_html/org/"
 	 :section-numbers nil
 	 :table-of-contents nil
 	 :style "<link rel=\"stylesheet\"
