@@ -9,8 +9,13 @@
  (rear-context-string)
  (front-context-region-string)
  (rear-context-region-string)
+<<<<<<< HEAD
  (visits . 4)
  (time 20376 44197 234000)
+=======
+ (visits . 3)
+ (time 20377 28700 878000)
+>>>>>>> 1d15d97dd00982dcb2ad00ff0b6e8ab42d9d768f
  (created 20373 9637 227000)
  (position . 1)
  (end-position . 1))
@@ -70,7 +75,11 @@
  (front-context-region-string)
  (rear-context-region-string)
  (visits . 2)
+<<<<<<< HEAD
  (time 20379 28628 321000)
+=======
+ (time 20383 56315 222000)
+>>>>>>> 1d15d97dd00982dcb2ad00ff0b6e8ab42d9d768f
  (created 19715 7640 531000)
  (position . 42)
  (end-position . 42))
@@ -140,8 +149,8 @@
  (rear-context-string)
  (position . 1))
 ("test.org"
- (time 20375 36000 55000)
- (visits . 0)
+ (time 20375 36440 744000)
+ (visits . 1)
  (filename . "~/.emacs.d/org/test.org")
  (front-context-string . "#+AUTHOR:隋金鑫\n#+T")
  (rear-context-string)
@@ -181,7 +190,8 @@
   (rear-context-string . "-*- outline -*-\n")
   (position . 42)))
 (".emacs"
- ((end-position . 1506)
+ ((tags "config")
+  (end-position . 1506)
   (time 20375 35868 76000)
   (visits . 26)
   (filename . "~/.emacs")
