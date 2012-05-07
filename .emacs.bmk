@@ -9,13 +9,13 @@
  (rear-context-string)
  (front-context-region-string)
  (rear-context-region-string)
-<<<<<<< HEAD
+ <<<<<<< HEAD
  (visits . 4)
  (time 20376 44197 234000)
-=======
+ =======
  (visits . 3)
  (time 20377 28700 878000)
->>>>>>> 1d15d97dd00982dcb2ad00ff0b6e8ab42d9d768f
+ >>>>>>> 1d15d97dd00982dcb2ad00ff0b6e8ab42d9d768f
  (created 20373 9637 227000)
  (position . 1)
  (end-position . 1))
@@ -50,8 +50,8 @@
  (rear-context-string)
  (front-context-region-string)
  (rear-context-region-string)
- (visits . 11)
- (time 20367 23675 230000)
+ (visits . 12)
+ (time 20384 37049 312000)
  (created 19868 17666 828000)
  (position . 1)
  (end-position . 1))
@@ -75,11 +75,11 @@
  (front-context-region-string)
  (rear-context-region-string)
  (visits . 2)
-<<<<<<< HEAD
+ <<<<<<< HEAD
  (time 20379 28628 321000)
-=======
+ =======
  (time 20383 56315 222000)
->>>>>>> 1d15d97dd00982dcb2ad00ff0b6e8ab42d9d768f
+ >>>>>>> 1d15d97dd00982dcb2ad00ff0b6e8ab42d9d768f
  (created 19715 7640 531000)
  (position . 42)
  (end-position . 42))
@@ -164,8 +164,8 @@
  (position . 50))
 ("org-init.el"
  (end-position . 8)
- (time 20375 40156 718000)
- (visits . 8)
+ (time 20386 16484 171000)
+ (visits . 10)
  (filename . "~/.emacs.d/config/org-init.el")
  (front-context-string . "(setq load-path ")
  (rear-context-string)
@@ -183,8 +183,8 @@
  (rear-context-string . "lisp/remember\")\n")
  (position . 439))
 ("ubuntu.note"
- ((time 20379 44672 915000)
-  (visits . 11)
+ ((time 20386 15237 453000)
+  (visits . 12)
   (filename . "~/.emacs.d/Notes/ubuntu.note")
   (front-context-string . "*---Ubuntu中文环境配置")
   (rear-context-string . "-*- outline -*-\n")
@@ -218,8 +218,8 @@
  (position . 25897)
  (end-position . 25897))
 ("debian.note"
- ((time 20379 44143 571000)
-  (visits . 9)
+ ((time 20386 15276 328000)
+  (visits . 10)
   (filename . "~/.emacs.d/Notes/debian.note")
   (front-context-string . "*---Vim中文设置---20")
   (rear-context-string . "-*- outline -*-\n")
