@@ -192,8 +192,8 @@
 (".emacs"
  ((tags "config")
   (end-position . 1506)
-  (time 20375 35868 76000)
-  (visits . 26)
+  (time 20401 45484 312000)
+  (visits . 30)
   (filename . "~/.emacs")
   (front-context-string . ";;;;;;;;;;;;;;;;")
   (rear-context-string)
