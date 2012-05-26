@@ -8,7 +8,8 @@
 (load "emacs-custom")
 (load "org-init")
 (require 'dired-single)
-
+(require 'autopair)
+(autopair-global-mode)
 ;;(load "my-speedbar")
 ;;(load "jdee-init")
 ;;(load "scheme")

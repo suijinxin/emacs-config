@@ -9,7 +9,6 @@
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
-
 ;;;_+ Ibuffers config
 ;;分组设置
 (require 'smart-compile)
@@ -49,22 +48,6 @@
 (global-set-key "\C-xt" 'insert-date)
 
 
-;;输入左边的括号，就会自动补全右边的部分.包括(), "", [] , {} , 等等。
-(defun my-c-mode-auto-pair ()
-  (interactive)
-  (make-local-variable 'skeleton-pair-alist)
-  (setq skeleton-pair-alist  '(
-    (?` ?` _ "''")
-    (?\(? _")")
-    (?\[ ?  _ " ]")
-    (?{ \n > _ \n ?} >)))
-  (setq skeleton-pair t)
-  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
-(add-hook 'c-mode-hook 'my-c-mode-auto-pair)
-(add-hook 'c++-mode-hook 'my-c-mode-auto-pair)
 
 ;=========================================END==============================================
 ;;;_auto-complete config
@@ -84,6 +67,23 @@
 (setq yas/prompt-functions '(yas/dropdown-prompt
 			     yas/ido-prompt
 			     yas/completing-prompt))
+;;; Test
+(defface ac-yasnippet-candidate-face
+  '((t (:background "sandybrown" :foreground "black")))
+  "Face for yasnippet candidate.")
+
+(defface ac-yasnippet-selection-face
+  '((t (:background "coral3" :foreground "white")))
+  "Face for the yasnippet selected candidate.")
+
+(defvar ac-source-yasnippet
+  '((candidates . ac-yasnippet-candidate)
+    (action . yas/expand)
+    (candidate-face . ac-yasnippet-candidate-face)
+    (selection-face . ac-yasnippet-selection-face))
+  "Source for Yasnippet.") 
+
+
 ;;(yas/define-snippets 'nxhtml-mode nil 'html-mode)
 ;;;--------------------------------------------------------------------------------------------
 ;;;+_ Setting msf-abbrev
@@ -126,6 +126,26 @@
 ;;   '(add-to-list 'byte-compile-not-obsolete-vars   
 ;; 				'font-lock-syntactic-keywords))  
 ;;--------------------------------------------------------------------------------------------
+;;输入左边的括号，就会自动补全右边的部分.包括(), "", [] , {} , 等等。
+;; (defun my-c-mode-auto-pair ()
+;;   (interactive)
+;;   (make-local-variable 'skeleton-pair-alist)
+;;   (setq skeleton-pair-alist  '(
+;;     (?` ?` _ "''")
+;;     (?\(? _")")
+;;     (?\[ ?  _ " ]")
+;;     (?{ \n > _ \n ?} >)))
+;;   (setq skeleton-pair t)
+;;   (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+;;   (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+;;   (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
+;;   (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
+;; (add-hook 'c-mode-hook 'my-c-mode-auto-pair)
+;; (add-hook 'c++-mode-hook 'my-c-mode-auto-pair)
+
+
+
+
 ;;cc-mode config reference
 
 ;(setq c-default-style "linux"
