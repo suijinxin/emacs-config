@@ -135,8 +135,8 @@
  (position . 1))
 ("my-func.el"
  (end-position . 328)
- (time 20416 39938 855000)
- (visits . 45)
+ (time 20416 49523 902000)
+ (visits . 46)
  (filename . "~/.emacs.d/config/my-func.el")
  (front-context-string . ";;;_+ Ibuffers c")
  (rear-context-string)
@@ -192,18 +192,16 @@
 (".emacs"
  ((tags "config")
   (end-position . 1506)
-<<<<<<< HEAD
+  <<<<<<< HEAD
   (time 20416 37382 746000)
   (visits . 28)
-=======
-<<<<<<< HEAD
+  ======= <<<<<<< HEAD
   (time 20401 45484 312000)
   (visits . 30)
-=======
+  =======
   (time 20394 12396 109000)
   (visits . 27)
->>>>>>> f18534ab134e5c12d083c738db30fe1f09769ff1
->>>>>>> 199eec415d93066316f92639e5c789a7575e0167
+  >>>>>>> f18534ab134e5c12d083c738db30fe1f09769ff1 >>>>>>> 199eec415d93066316f92639e5c789a7575e0167
   (filename . "~/.emacs")
   (front-context-string . ";;;;;;;;;;;;;;;;")
   (rear-context-string)
@@ -235,8 +233,8 @@
   (rear-context-string . "-*- outline -*-\n")
   (position . 56)))
 ("other.el"
- ((time 20416 39836 42000)
-  (visits . 27)
+ ((time 20416 49595 714000)
+  (visits . 28)
   (filename . "~/.emacs.d/config/other.el")
   (front-context-string . ";;  设置中文日历\n(requ")
   (rear-context-string)

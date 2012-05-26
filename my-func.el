@@ -46,9 +46,6 @@
   (interactive)
   (insert (format-time-string "%YƒÍ%m‘¬%e»’ %T " (current-time))))
 (global-set-key "\C-xt" 'insert-date)
-
-
-
 ;=========================================END==============================================
 ;;;_auto-complete config
 (add-to-list 'load-path "~/.emacs.d/my-elisp/auto-complete")
@@ -56,7 +53,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/my-elisp/auto-complete/ac-dict")
 (ac-config-default)
 
-;;;_yasnippet config
+;;;_yasnippet config--------------------------------------------------------
 (add-to-list 
  'load-path  "~/.emacs.d/my-elisp/yasnippet")
 (require 'yasnippet) ;;not yasnippet-bundle
@@ -67,22 +64,6 @@
 (setq yas/prompt-functions '(yas/dropdown-prompt
 			     yas/ido-prompt
 			     yas/completing-prompt))
-;;; Test
-(defface ac-yasnippet-candidate-face
-  '((t (:background "sandybrown" :foreground "black")))
-  "Face for yasnippet candidate.")
-
-(defface ac-yasnippet-selection-face
-  '((t (:background "coral3" :foreground "white")))
-  "Face for the yasnippet selected candidate.")
-
-(defvar ac-source-yasnippet
-  '((candidates . ac-yasnippet-candidate)
-    (action . yas/expand)
-    (candidate-face . ac-yasnippet-candidate-face)
-    (selection-face . ac-yasnippet-selection-face))
-  "Source for Yasnippet.") 
-
 
 ;;(yas/define-snippets 'nxhtml-mode nil 'html-mode)
 ;;;--------------------------------------------------------------------------------------------
