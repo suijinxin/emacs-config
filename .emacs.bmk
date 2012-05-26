@@ -192,8 +192,18 @@
 (".emacs"
  ((tags "config")
   (end-position . 1506)
+<<<<<<< HEAD
   (time 20416 37382 746000)
   (visits . 28)
+=======
+<<<<<<< HEAD
+  (time 20401 45484 312000)
+  (visits . 30)
+=======
+  (time 20394 12396 109000)
+  (visits . 27)
+>>>>>>> f18534ab134e5c12d083c738db30fe1f09769ff1
+>>>>>>> 199eec415d93066316f92639e5c789a7575e0167
   (filename . "~/.emacs")
   (front-context-string . ";;;;;;;;;;;;;;;;")
   (rear-context-string)
