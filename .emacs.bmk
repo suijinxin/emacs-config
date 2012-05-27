@@ -233,8 +233,8 @@
   (rear-context-string . "-*- outline -*-\n")
   (position . 56)))
 ("other.el"
- ((time 20416 49595 714000)
-  (visits . 28)
+ ((time 20418 10482 591000)
+  (visits . 29)
   (filename . "~/.emacs.d/config/other.el")
   (front-context-string . ";;  设置中文日历\n(requ")
   (rear-context-string)
