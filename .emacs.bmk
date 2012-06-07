@@ -193,8 +193,8 @@
  ((tags "config")
   (end-position . 1506)
   <<<<<<< HEAD
-  (time 20416 37382 746000)
-  (visits . 28)
+  (time 20423 24302 315000)
+  (visits . 29)
   ======= <<<<<<< HEAD
   (time 20401 45484 312000)
   (visits . 30)
@@ -233,8 +233,8 @@
   (rear-context-string . "-*- outline -*-\n")
   (position . 56)))
 ("other.el"
- ((time 20418 10482 591000)
-  (visits . 29)
+ ((time 20420 12684 925000)
+  (visits . 30)
   (filename . "~/.emacs.d/config/other.el")
   (front-context-string . ";;  设置中文日历\n(requ")
   (rear-context-string)
