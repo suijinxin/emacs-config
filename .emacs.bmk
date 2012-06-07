@@ -2,7 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("html_css.org"
+(("html_css.org" 
  (filename . "~/.emacs.d/Notes/html_css.org")
  (buffer-name . "html_css.org")
  (front-context-string . "#+TITLE:    Note")
