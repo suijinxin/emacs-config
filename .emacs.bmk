@@ -103,8 +103,8 @@
  (end-position . 42))
 ("lfs_gentoo.note"
  (end-position . 4815)
- (time 20418 51552 370000)
- (visits . 21)
+ (time 20434 62205 463000)
+ (visits . 22)
  (filename . "~/.emacs.d/Notes/lfs_gentoo.note")
  (front-context-string . "* Gentoo下phpmyad")
  (rear-context-string . "AdobeFlash-10.1\n")
@@ -189,8 +189,8 @@
  (rear-context-string)
  (position . 8))
 ("muse-init.el"
- (time 19936 48263 85000)
- (visits . 0)
+ (time 20434 62194 135000)
+ (visits . 1)
  (filename . "~/.emacs.d/config/muse-init.el")
  (front-context-string . "(add-to-list 'lo")
  (rear-context-string)
