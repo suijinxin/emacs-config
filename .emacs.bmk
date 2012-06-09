@@ -2,6 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
+<<<<<<< HEAD
 (("d:/Programming/"
  (buffer-name . "Programming")
  (front-context-string . ".git\n  drwxrwxrw")
@@ -21,6 +22,9 @@
  (dired-hidden-dirs)
  (handler . bmkp-jump-dired))
 ("html_css.org"
+=======
+(("html_css.org" 
+>>>>>>> 82ea478bc145621f9ce25a57bd07d8261a7f82cc
  (filename . "~/.emacs.d/Notes/html_css.org")
  (buffer-name . "html_css.org")
  (front-context-string . "#+TITLE:    Note")
@@ -211,8 +215,13 @@
  ((tags "config")
   (end-position . 1506)
   <<<<<<< HEAD
+<<<<<<< HEAD
   (time 20434 55819 541000)
   (visits . 34)
+=======
+  (time 20423 24302 315000)
+  (visits . 29)
+>>>>>>> 82ea478bc145621f9ce25a57bd07d8261a7f82cc
   ======= <<<<<<< HEAD
   (time 20401 45484 312000)
   (visits . 30)
@@ -251,8 +260,13 @@
   (rear-context-string . "-*- outline -*-\n")
   (position . 56)))
 ("other.el"
+<<<<<<< HEAD
  ((time 20434 55860 57000)
   (visits . 29)
+=======
+ ((time 20420 12684 925000)
+  (visits . 30)
+>>>>>>> 82ea478bc145621f9ce25a57bd07d8261a7f82cc
   (filename . "~/.emacs.d/config/other.el")
   (front-context-string . ";;  设置中文日历\n(requ")
   (rear-context-string)
