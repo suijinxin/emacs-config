@@ -1,4 +1,5 @@
 ;;;_+ 导入配置文件
+(load "org-init")
 (load "bookmarkplus")
 ;;(load "auctexconf")
 (load "muse-init")
@@ -6,7 +7,7 @@
 (load "~/.mew.el")
 (load "my-func")
 (load "emacs-custom")
-(load "org-init")
+
 (require 'dired-single)
 (require 'autopair)
 (autopair-global-mode)

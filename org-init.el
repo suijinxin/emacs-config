@@ -1,5 +1,6 @@
 ;;基本设置
 (setq load-path (cons "~/.emacs.d/my-elisp/org-mode/lisp" load-path))
+(setq load-path (cons "~/.emacs.d/my-elisp/org-mode/contrib/lisp " load-path))
 (require 'org-install)
 (require 'org)
 (require 'org-mouse)
@@ -47,7 +48,7 @@
 ;;;发布工程设置
 (setq org-publish-project-alist
       '(("org"
-	 :base-directory "~/.emacs.d/org/"
+	 :base-directory "~/.emacs.d/public_html/org/"
 	 :publishing-directory "~/.emacs.d/public_html/org/"
 	 :section-numbers nil
 	 :table-of-contents nil
@@ -99,23 +100,23 @@
 ;;quick open org files
 (defun o-todo()
   (interactive)
-  (find-file "~/org/todo.org")
+  (find-file "~/.emacs.d./org/todo.org")
 )
 (defun o-test ()
    (interactive)
-   (find-file "~/org/test.org")
+   (find-file "~/.emacs.d/org/test.org")
  )
 (defun o-work ()
   (interactive)
-  (find-file "~/org/work.org")
+  (find-file "~/.emacs.d/org/work.org")
 )
 (defun o-life ()
   (interactive)
-  (find-file "~/org/life.org")
+  (find-file "~/.emacs.d/org/life.org")
 )
 (defun o-study ()
   (interactive)
-  (find-file "~/org/study.org")
+  (find-file "~/.emacs.d/org/study.org")
 )
 ;;
 ;; (eval-after-load "htmlize"
