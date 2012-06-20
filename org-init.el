@@ -24,6 +24,8 @@
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
+;;src code
+(setq org-src-fontify-natively t) 
 ;; open appt message function
 (appt-activate t)
 (setq appt-display-format 'window)
